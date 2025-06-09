@@ -1,0 +1,14 @@
+<x-filament-widgets::widget>
+    <x-filament::section>
+        <form wire:submit.prevent="submit">
+            {{ $this->form }}
+
+            <div class="flex justify-end items-center gap-2 mt-2">
+                <x-filament::button type="submit" wire:loading.attr="disabled"
+                    class="flex justify-end items-center gap-2">
+                    <x-filament::loading-indicator class="h-5 w-5" wire:loading wire:target="submit" />
+                    Perbarui Akun
+                </x-filament::button>
+            </div>
+    </x-filament::section>
+</x-filament-widgets::widget>
