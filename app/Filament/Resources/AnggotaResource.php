@@ -6,9 +6,11 @@ use App\Filament\Resources\AnggotaResource\Pages;
 use App\Filament\Resources\AnggotaResource\RelationManagers;
 use App\Models\Anggota;
 use Filament\Forms;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -28,16 +30,27 @@ class AnggotaResource extends Resource
         return false;
     }
 
-    public static function canEdit(Model $record): bool
-    {
-        return false;
-    }
-
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                //
+                TextInput::make('name')
+                    ->label('Name')
+                    ->required()
+                    ->maxLength(240)
+                    ->unique(ignoreRecord: true),
+                TextInput::make('username')
+                    ->label('Username')
+                    ->required()
+                    ->maxLength(240)
+                    ->unique(ignoreRecord: true),
+                TextInput::make('password')
+                    ->label('Password')
+                    ->password()
+                    ->required()
+                    ->minLength(6)
+                    ->maxLength(240)
+                    ->dehydrateStateUsing(fn($state) => bcrypt($state))
             ]);
     }
 
@@ -55,14 +68,20 @@ class AnggotaResource extends Resource
                     ->searchable()
                     ->sortable()
                     ->limit(50),
+                Tables\Columns\TextColumn::make('ranting.nama_ranting')
+                    ->label('Ranting')
+                    ->sortable()
+                    ->limit(50),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('ranting')
                     ->label('Ranting')
-                    ->relationship('anggota.ranting', 'nama_ranting')
+                    ->relationship('ranting', 'ranting.nama_ranting')
                     ->searchable()
             ])
-            ->actions([])
+            ->actions([
+                EditAction::make(),
+            ])
             ->bulkActions([]);
     }
 
@@ -76,14 +95,13 @@ class AnggotaResource extends Resource
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()
-            ->with(['anggota.ranting']);
+            ->with(['ranting']);
     }
 
     public static function getPages(): array
     {
         return [
             'index' => Pages\ListAnggotas::route('/'),
-            'create' => Pages\CreateAnggota::route('/create'),
             'edit' => Pages\EditAnggota::route('/{record}/edit'),
         ];
     }

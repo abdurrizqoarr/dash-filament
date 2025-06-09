@@ -120,7 +120,9 @@ class RiwayatPengesahanAnggotaSuperAdminResource extends Resource
                     Tables\Actions\Action::make('download_sk')
                         ->label('Sertifikat')
                         ->icon('heroicon-o-arrow-down-tray')
-                        ->url(fn($record) => $record->sertifikat_pengesahan ? Storage::url($record->sertifikat_pengesahan) : null)
+                        ->url(fn($record) => $record->sertifikat_pengesahan
+                            ? route('download.document', ['filename' => $record->sertifikat_pengesahan])
+                            : null)
                         ->openUrlInNewTab()
                         ->visible(fn($record) => !empty($record->sertifikat_pengesahan)),
                 ]),

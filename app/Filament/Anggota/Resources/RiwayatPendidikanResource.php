@@ -91,7 +91,9 @@ class RiwayatPendidikanResource extends Resource
                 Tables\Actions\Action::make('download_sk')
                     ->label('Ijazah')
                     ->icon('heroicon-o-arrow-down-tray')
-                    ->url(fn($record) => $record->ijazah ? Storage::url($record->ijazah) : null)
+                    ->url(fn($record) => $record->ijazah
+                        ? route('download.document', ['filename' => $record->ijazah])
+                        : null)
                     ->openUrlInNewTab()
                     ->visible(fn($record) => !empty($record->ijazah)),
             ])

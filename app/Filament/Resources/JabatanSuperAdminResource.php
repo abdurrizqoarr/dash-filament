@@ -106,7 +106,9 @@ class JabatanSuperAdminResource extends Resource
                 Tables\Actions\Action::make('download_sk')
                     ->label('Download SK')
                     ->icon('heroicon-o-arrow-down-tray')
-                    ->url(fn($record) => $record->sk_jabatan ? Storage::url($record->sk_jabatan) : null)
+                    ->url(fn($record) => $record->sk_jabatan
+                        ? route('download.document', ['filename' => $record->sk_jabatan])
+                        : null)
                     ->openUrlInNewTab()
                     ->visible(fn($record) => !empty($record->sk_jabatan)),
             ])

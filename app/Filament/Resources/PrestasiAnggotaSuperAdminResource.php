@@ -114,7 +114,9 @@ class PrestasiAnggotaSuperAdminResource extends Resource
                     Tables\Actions\Action::make('download_sk')
                         ->label('Sertifikat')
                         ->icon('heroicon-o-arrow-down-tray')
-                        ->url(fn($record) => $record->sertifikat_prestasi ? Storage::url($record->sertifikat_prestasi) : null)
+                        ->url(fn($record) => $record->sertifikat_prestasi
+                            ? route('download.document', ['filename' =>  $record->sertifikat_prestasi])
+                            : null)
                         ->openUrlInNewTab()
                         ->visible(fn($record) => !empty($record->sertifikat_prestasi)),
                 ]),

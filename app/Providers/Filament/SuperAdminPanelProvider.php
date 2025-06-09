@@ -26,6 +26,15 @@ class SuperAdminPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->id('super-admin')
+            ->favicon(asset('images/logo.png'))
+            ->brandName('SIMANIES PSHT')
+            ->colors([
+                'primary' => '#0e7490', // Cyan 700 – Menenangkan dan tegas
+                'danger'  => '#dc2626', // Red 600 – Bahaya
+                'success' => '#16a34a', // Green 600 – Sukses
+                'warning' => '#eab308', // Yellow 500 – Peringatan
+                'info'    => '#2563eb', // Blue 600 – Info
+            ])
             ->path('super-admin')
             ->login()
             ->databaseNotifications()

@@ -113,7 +113,9 @@ class RiwayatPelatihanAnggotaAdminResource extends Resource
                     Tables\Actions\Action::make('download_sk')
                         ->label('Sertifikat')
                         ->icon('heroicon-o-arrow-down-tray')
-                        ->url(fn($record) => $record->sertifikat ? Storage::url($record->sertifikat) : null)
+                        ->url(fn($record) => $record->sertifikat
+                            ? route('download.document', ['filename' => $record->sertifikat])
+                            : null)
                         ->openUrlInNewTab()
                         ->visible(fn($record) => !empty($record->sertifikat)),
                 ]),
