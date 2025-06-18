@@ -66,10 +66,13 @@ class ProfileAnggotaSuperAdminResource extends Resource
 
                             Forms\Components\TextInput::make('nomer_induk_kependudukan')
                                 ->label('Nomer Induk Kependudukan')
+                                ->maxLength(240)
                                 ->nullable(),
 
                             Forms\Components\TextInput::make('tempat_lahir')
                                 ->label('Tempat Lahir')
+                                ->minLength(2)
+                                ->maxLength(240)
                                 ->required(),
 
                             Forms\Components\DatePicker::make('tanggal_lahir')
@@ -166,13 +169,15 @@ class ProfileAnggotaSuperAdminResource extends Resource
                     ->label('Status Pernikahan')
                     ->limit(50),
                 Tables\Columns\TextColumn::make('alamat')
+                    ->wrap()
                     ->label('Alamat Rumah'),
                 Tables\Columns\TextColumn::make('jenis_pekerjaan')
                     ->label('Jenis Pekerjaan'),
                 Tables\Columns\TextColumn::make('lembaga_instansi_bekerja')
                     ->label('Lembaga/Instansi Bekerja'),
                 Tables\Columns\TextColumn::make('alamat_lembaga_instansi_bekerja')
-                    ->label('Alamat Lembaga/Instansi Bekerja'),
+                    ->label('Alamat Lembaga/Instansi Bekerja')
+                    ->wrap(),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('ranting')

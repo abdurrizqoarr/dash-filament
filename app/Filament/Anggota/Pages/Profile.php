@@ -14,6 +14,7 @@ use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class Profile extends Page implements HasForms
 {
@@ -45,13 +46,19 @@ class Profile extends Page implements HasForms
                         TextInput::make('nomer_induk_warga')
                             ->label('Nomer Induk Warga')
                             ->required()
+                            ->minLength(2)
+                            ->maxLength(240)
                             ->unique(ignoreRecord: true),
 
                         TextInput::make('nomer_induk_kependudukan')
                             ->label('NIK')
+                            ->minLength(2)
+                            ->maxLength(240)
                             ->nullable(),
 
                         TextInput::make('tempat_lahir')
+                            ->minLength(2)
+                            ->maxLength(240)
                             ->required(),
 
                         DatePicker::make('tanggal_lahir')
@@ -108,26 +115,32 @@ class Profile extends Page implements HasForms
 
     public function submit()
     {
+        $formData = $this->form->getState();
         try {
-            $user = Auth::user();
+            $user = Auth::guard('anggota')->user();
 
             ModelsProfile::updateOrCreate(
                 ['id_anggota' => $user->id],
                 array_merge(
-                    $this->form->getState(),
+                    $formData,
                     ['id_anggota' => $user->id]
                 )
             );
 
             Notification::make()
-                ->title('Ganti Akun Berhasil')
+                ->title('Ganti Profile Berhasil')
                 ->duration(3000)
                 ->success()
                 ->send();
         } catch (\Throwable $e) {
+            Log::error('Profile update error: ' . $e->getMessage(), [
+                'exception' => $e,
+                'user_id' => Auth::id(),
+            ]);
+
             Notification::make()
                 ->title('Terjadi kesalahan saat menyimpan data')
-                ->body($e->getMessage())
+                ->body('Mohon coba beberapa saat lagi')
                 ->danger()
                 ->duration(5000)
                 ->send();

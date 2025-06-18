@@ -5,7 +5,9 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\AnggotaResource\Pages;
 use App\Filament\Resources\AnggotaResource\RelationManagers;
 use App\Models\Anggota;
+use App\Models\Ranting;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -25,11 +27,6 @@ class AnggotaResource extends Resource
     protected static ?string $modelLabel = 'Anggota';
     protected static ?string $pluralModelLabel = 'Anggota';
 
-    public static function canCreate(): bool
-    {
-        return false;
-    }
-
     public static function form(Form $form): Form
     {
         return $form
@@ -44,6 +41,11 @@ class AnggotaResource extends Resource
                     ->required()
                     ->maxLength(240)
                     ->unique(ignoreRecord: true),
+                Select::make('id_ranting')
+                    ->required()
+                    ->label('Ranting')
+                    ->options(Ranting::all()->pluck('nama_ranting', 'id'))
+                    ->searchable(),
                 TextInput::make('password')
                     ->label('Password')
                     ->password()
@@ -103,6 +105,7 @@ class AnggotaResource extends Resource
         return [
             'index' => Pages\ListAnggotas::route('/'),
             'edit' => Pages\EditAnggota::route('/{record}/edit'),
+            'create' => Pages\CreateAnggota::route('/create'),
         ];
     }
 }

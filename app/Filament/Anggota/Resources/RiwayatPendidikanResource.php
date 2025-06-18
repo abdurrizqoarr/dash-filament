@@ -45,6 +45,7 @@ class RiwayatPendidikanResource extends Resource
                 Forms\Components\TextInput::make('nama_instansi')
                     ->label('Nama Instansi')
                     ->required()
+                    ->minLength(2)
                     ->maxLength(255),
 
                 Forms\Components\TextInput::make('tahun_lulus')
@@ -62,6 +63,7 @@ class RiwayatPendidikanResource extends Resource
                     ->acceptedFileTypes(['application/pdf'])
                     ->helperText('Hanya file PDF yang diperbolehkan')
                     ->previewable(false)
+
             ]);
     }
 

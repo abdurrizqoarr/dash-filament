@@ -44,11 +44,13 @@ class AdminResource extends Resource
             ->schema([
                 TextInput::make('name')
                     ->label('Name')
+                    ->minLength(2)
                     ->required()
                     ->maxLength(240)
                     ->unique(ignoreRecord: true),
                 TextInput::make('username')
                     ->label('Username')
+                    ->minLength(2)
                     ->required()
                     ->maxLength(240)
                     ->unique(ignoreRecord: true),
@@ -98,9 +100,7 @@ class AdminResource extends Resource
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                
             ]);
     }
 

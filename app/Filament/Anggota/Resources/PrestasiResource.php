@@ -29,6 +29,7 @@ class PrestasiResource extends Resource
                 Forms\Components\TextInput::make('prestasi')
                     ->label('Prestasi')
                     ->required()
+                    ->minLength(2)
                     ->maxLength(255),
                 Forms\Components\TextInput::make('tahun')
                     ->label('Tahun')
@@ -51,7 +52,9 @@ class PrestasiResource extends Resource
                     ->directory('sertifikat-prestasi')
                     ->maxSize(3072)
                     ->previewable(false)
-                    ->nullable(),
+                    ->nullable()
+                    ->acceptedFileTypes(['image/*', 'application/pdf'])
+                    ->helperText('Unggah file gambar atau PDF, maksimal 3MB.'),
             ]);
     }
 

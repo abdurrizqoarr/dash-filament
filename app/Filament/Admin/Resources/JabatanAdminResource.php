@@ -50,6 +50,7 @@ class JabatanAdminResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('jabatan')
                     ->label('Jabatan')
+                    ->minLength(2)
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Select::make('lokasi_jabatan')
@@ -80,13 +81,6 @@ class JabatanAdminResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->headerActions([
-                ExportAction::make()
-                    ->exporter(JabatanExporter::class)
-                    ->formats([
-                        ExportFormat::Xlsx,
-                    ]),
-            ])
             ->columns([
                 Tables\Columns\TextColumn::make('anggota.name')->label('Nama Anggota')->searchable(),
                 Tables\Columns\TextColumn::make('jabatan')->label('Jabatan'),

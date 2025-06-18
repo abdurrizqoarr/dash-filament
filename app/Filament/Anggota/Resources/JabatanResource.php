@@ -29,6 +29,7 @@ class JabatanResource extends Resource
                 Forms\Components\TextInput::make('jabatan')
                     ->label('Jabatan')
                     ->required()
+                    ->minLength(2)
                     ->maxLength(255),
                 Forms\Components\Select::make('lokasi_jabatan')
                     ->label('Lokasi Jabatan')

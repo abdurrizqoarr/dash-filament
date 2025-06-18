@@ -24,7 +24,7 @@ class UserSetting extends Page implements HasForms
 
     public function mount(): void
     {
-        $user = Auth::user();
+        $user = Auth::guard('anggota')->user();
 
         $this->form->fill([
             'name' => $user->name,

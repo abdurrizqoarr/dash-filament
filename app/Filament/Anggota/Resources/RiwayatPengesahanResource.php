@@ -38,6 +38,7 @@ class RiwayatPengesahanResource extends Resource
                 Forms\Components\TextInput::make('cabang')
                     ->label('Cabang')
                     ->required()
+                    ->minLength(2)
                     ->maxLength(255),
 
                 Forms\Components\TextInput::make('tahun')

@@ -90,13 +90,6 @@ class RiwayatSertifikasiAnggotaAdminResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->headerActions([
-                ExportAction::make()
-                    ->exporter(SertifikasiExporter::class)
-                    ->formats([
-                        ExportFormat::Xlsx,
-                    ]),
-            ])
             ->columns([
                 Tables\Columns\TextColumn::make('anggota.name')
                     ->label('Nama Anggota')

@@ -37,16 +37,22 @@ class RiwayatPelatihanResource extends Resource
                     ->required(),
                 Forms\Components\TextInput::make('rayon')
                     ->label('Rayon')
+                    ->minLength(2)
+                    ->maxLength(240)
                     ->required(),
                 Forms\Components\TextInput::make('penyelenggara')
                     ->label('Penyelenggara')
+                    ->minLength(2)
+                    ->maxLength(240)
                     ->required(),
                 Forms\Components\FileUpload::make('sertifikat')
                     ->label('Sertifikat')
                     ->directory('sertifikat-latihan')
                     ->maxSize(3072)
                     ->previewable(false)
-                    ->nullable(),
+                    ->nullable()
+                    ->acceptedFileTypes(['image/*', 'application/pdf'])
+                    ->helperText('Unggah file gambar atau PDF, maksimal 3MB.'),
             ]);
     }
 

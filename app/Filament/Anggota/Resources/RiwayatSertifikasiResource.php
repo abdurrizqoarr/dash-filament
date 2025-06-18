@@ -29,11 +29,13 @@ class RiwayatSertifikasiResource extends Resource
                 Forms\Components\TextInput::make('sertifikasi')
                     ->label('Nama Sertifikasi')
                     ->required()
+                    ->minLength(2)
                     ->maxLength(255),
 
                 Forms\Components\TextInput::make('penyelenggara')
                     ->label('Penyelenggara')
                     ->required()
+                    ->minLength(2)
                     ->maxLength(255),
 
                 Forms\Components\Select::make('tingkat')
@@ -104,11 +106,7 @@ class RiwayatSertifikasiResource extends Resource
                     ->openUrlInNewTab()
                     ->visible(fn($record) => !empty($record->dokumen_sertifikasi)),
             ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
-            ]);
+            ->bulkActions([]);
     }
 
     public static function getRelations(): array

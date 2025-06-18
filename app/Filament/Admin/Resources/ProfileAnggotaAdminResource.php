@@ -89,13 +89,6 @@ class ProfileAnggotaAdminResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->headerActions([
-                ExportAction::make()
-                    ->exporter(ProfileExporter::class)
-                    ->formats([
-                        ExportFormat::Xlsx,
-                    ]),
-            ])
             ->columns([
                 Tables\Columns\TextColumn::make('anggota.name')
                     ->label('Name')
@@ -128,6 +121,7 @@ class ProfileAnggotaAdminResource extends Resource
                 Tables\Columns\TextColumn::make('lembaga_instansi_bekerja')
                     ->label('Lembaga/Instansi Bekerja'),
                 Tables\Columns\TextColumn::make('alamat_lembaga_instansi_bekerja')
+                    ->wrap(true)
                     ->label('Alamat Lembaga/Instansi Bekerja'),
             ])
             ->query(function () {

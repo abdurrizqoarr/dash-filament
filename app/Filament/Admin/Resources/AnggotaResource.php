@@ -35,11 +35,13 @@ class AnggotaResource extends Resource
                 TextInput::make('name')
                     ->label('Name')
                     ->required()
+                    ->minLength(2)
                     ->maxLength(240)
                     ->unique(ignoreRecord: true),
                 TextInput::make('username')
                     ->label('Username')
                     ->required()
+                    ->minLength(2)
                     ->maxLength(240)
                     ->unique(ignoreRecord: true),
                 TextInput::make('password')

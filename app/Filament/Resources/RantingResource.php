@@ -44,6 +44,7 @@ class RantingResource extends Resource
                 Forms\Components\TextInput::make('nama_ranting')
                     ->label('Nama Ranting')
                     ->required()
+                    ->minLength(2)
                     ->maxLength(240)
                     ->unique(ignoreRecord: true)
                     ->columnSpanFull(),

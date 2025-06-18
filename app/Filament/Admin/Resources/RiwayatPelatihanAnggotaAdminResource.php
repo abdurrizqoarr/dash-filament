@@ -67,9 +67,13 @@ class RiwayatPelatihanAnggotaAdminResource extends Resource
                     ->required(),
                 Forms\Components\TextInput::make('rayon')
                     ->label('Rayon')
+                    ->maxLength(240)
+                    ->minLength(2)
                     ->required(),
                 Forms\Components\TextInput::make('penyelenggara')
                     ->label('Penyelenggara')
+                    ->maxLength(240)
+                    ->minLength(2)
                     ->required(),
             ]);
     }
@@ -77,13 +81,6 @@ class RiwayatPelatihanAnggotaAdminResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->headerActions([
-                ExportAction::make()
-                    ->exporter(RiwayatLatihanExporter::class)
-                    ->formats([
-                        ExportFormat::Xlsx,
-                    ]),
-            ])
             ->columns([
                 Tables\Columns\TextColumn::make('anggota.name')
                     ->label('Nama Anggota')

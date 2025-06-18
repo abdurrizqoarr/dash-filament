@@ -91,13 +91,6 @@ class RiwayatPendidikanAnggotaAdminResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->headerActions([
-                ExportAction::make()
-                    ->exporter(RiwayatPengesahanExporter::class)
-                    ->formats([
-                        ExportFormat::Xlsx,
-                    ]),
-            ])
             ->columns([
                 Tables\Columns\TextColumn::make('anggota.name')
                     ->label('Nama Anggota')
