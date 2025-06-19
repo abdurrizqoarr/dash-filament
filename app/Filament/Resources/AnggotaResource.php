@@ -3,20 +3,17 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\AnggotaResource\Pages;
-use App\Filament\Resources\AnggotaResource\RelationManagers;
 use App\Models\Anggota;
 use App\Models\Ranting;
-use Filament\Forms;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class AnggotaResource extends Resource
 {
@@ -83,6 +80,7 @@ class AnggotaResource extends Resource
             ])
             ->actions([
                 EditAction::make(),
+                DeleteAction::make(),
             ])
             ->bulkActions([]);
     }
