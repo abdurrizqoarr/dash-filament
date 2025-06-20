@@ -20,7 +20,8 @@ class AnggotaResource extends Resource
     protected static ?string $model = Anggota::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
+    
+    protected static ?string $navigationGroup = 'DASHBOARD';
     protected static ?string $modelLabel = 'Anggota';
     protected static ?string $pluralModelLabel = 'Anggota';
 

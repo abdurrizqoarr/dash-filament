@@ -25,20 +25,22 @@ class RiwayatSertifikasiAnggotaSuperAdminResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $modelLabel = 'Riwayat Sertifikasi Anggota';
-    protected static ?string $pluralModelLabel = 'Riwayat Sertifikasi Anggota';
+    protected static ?string $modelLabel = 'Pendidikan Non Formal';
+    protected static ?string $pluralModelLabel = 'Pendidikan Non Formal';
 
     public static function getLabel(): ?string
     {
-        return 'Riwayat Sertifikasi Anggota';
+        return 'Pendidikan Non Formal';
     }
 
     public static function getPluralLabel(): ?string
     {
-        return 'Riwayat Sertifikasi Anggota';
+        return 'Pendidikan Non Formal';
     }
-    protected static ?string $navigationGroup = 'Anggota';
-    protected static ?string $navigationLabel = 'Riwayat Sertifikasi Anggota';
+    protected static ?string $navigationGroup = 'KEANGGOTAAN';
+    protected static ?int $navigationSort = 7;
+
+    protected static ?string $navigationLabel = 'Pendidikan Non Formal';
 
     public static function canCreate(): bool
     {

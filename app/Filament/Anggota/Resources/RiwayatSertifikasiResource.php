@@ -19,8 +19,23 @@ class RiwayatSertifikasiResource extends Resource
 {
     protected static ?string $model = Sertifikasi::class;
 
+    protected static ?string $navigationGroup = 'KEANGGOTAAN';
+    protected static ?int $navigationSort = 2;
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationLabel = 'Riwayat Sertifikasi';
+    protected static ?string $navigationLabel = 'Pendidikan Non Formal';
+
+    protected static ?string $modelLabel = 'Pendidikan Non Formal';
+    protected static ?string $pluralModelLabel = 'Pendidikan Non Formal';
+
+    public static function getLabel(): ?string
+    {
+        return 'Pendidikan Non Formal';
+    }
+
+    public static function getPluralLabel(): ?string
+    {
+        return 'Pendidikan Non Formal';
+    }
 
     public static function form(Form $form): Form
     {

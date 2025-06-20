@@ -37,8 +37,9 @@ class ProfileAnggotaSuperAdminResource extends Resource
     {
         return 'Profile Anggota';
     }
-    protected static ?string $navigationGroup = 'Anggota';
-
+    protected static ?string $navigationGroup = 'KEANGGOTAAN';
+    protected static ?int $navigationSort = 1;
+    
     public static function canCreate(): bool
     {
         return false;

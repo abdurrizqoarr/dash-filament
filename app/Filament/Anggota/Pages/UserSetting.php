@@ -18,6 +18,7 @@ class UserSetting extends Page implements HasForms
 
     protected static ?string $navigationIcon = 'heroicon-o-user';
 
+    protected static ?string $navigationGroup = 'DASHBOARD';
     protected static string $view = 'filament.anggota.pages.user-setting';
 
     public ?array $data = [];

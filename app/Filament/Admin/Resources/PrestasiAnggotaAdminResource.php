@@ -41,7 +41,8 @@ class PrestasiAnggotaAdminResource extends Resource
     {
         return 'Prestasi Anggota';
     }
-    protected static ?string $navigationGroup = 'Anggota';
+    protected static ?string $navigationGroup = 'KEANGGOTAAN';
+    protected static ?int $navigationSort = 8;
 
     public static function canCreate(): bool
     {

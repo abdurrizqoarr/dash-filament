@@ -22,6 +22,7 @@ class RantingResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationGroup = 'DASHBOARD';
     protected static ?string $navigationLabel = 'Ranting';
 
     protected static ?string $modelLabel = 'Ranting';

@@ -26,21 +26,22 @@ class RiwayatPelatihanAnggotaAdminResource extends Resource
     protected static ?string $model = RiwayatLatihan::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationLabel = 'Riwayat Pelatihan Anggota';
+    protected static ?string $navigationLabel = 'Riwayat Latihan PSHT';
 
-    protected static ?string $modelLabel = 'Riwayat Pelatihan Anggota';
-    protected static ?string $pluralModelLabel = 'Riwayat Pelatihan Anggota';
+    protected static ?string $modelLabel = 'Riwayat Latihan PSHT';
+    protected static ?string $pluralModelLabel = 'Riwayat Latihan PSHT';
 
     public static function getLabel(): ?string
     {
-        return 'Riwayat Pelatihan Anggota';
+        return 'Riwayat Latihan PSHT';
     }
 
     public static function getPluralLabel(): ?string
     {
-        return 'Riwayat Pelatihan Anggota';
+        return 'Riwayat Latihan PSHT';
     }
-    protected static ?string $navigationGroup = 'Anggota';
+    protected static ?string $navigationGroup = 'KEANGGOTAAN';
+    protected static ?int $navigationSort = 3;
 
     public static function canCreate(): bool
     {

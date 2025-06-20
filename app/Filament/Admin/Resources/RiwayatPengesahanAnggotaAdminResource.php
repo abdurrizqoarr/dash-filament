@@ -26,21 +26,22 @@ class RiwayatPengesahanAnggotaAdminResource extends Resource
     protected static ?string $model = RiwayatPengesahan::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationLabel = 'Riwayat Pengesahan Anggota';
+    protected static ?string $navigationLabel = 'Pengesahan Warga';
 
-    protected static ?string $modelLabel = 'Riwayat Pengesahan Anggota';
-    protected static ?string $pluralModelLabel = 'Riwayat Pengesahan Anggota';
+    protected static ?string $modelLabel = 'Pengesahan Warga';
+    protected static ?string $pluralModelLabel = 'Pengesahan Warga';
 
     public static function getLabel(): ?string
     {
-        return 'Riwayat Pengesahan Anggota';
+        return 'Pengesahan Warga';
     }
 
     public static function getPluralLabel(): ?string
     {
-        return 'Riwayat Pengesahan Anggota';
+        return 'Pengesahan Warga';
     }
-    protected static ?string $navigationGroup = 'Anggota';
+    protected static ?string $navigationGroup = 'KEANGGOTAAN';
+    protected static ?int $navigationSort = 5;
 
     public static function canCreate(): bool
     {

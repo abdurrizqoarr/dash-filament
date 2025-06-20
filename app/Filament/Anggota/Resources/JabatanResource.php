@@ -19,8 +19,24 @@ class JabatanResource extends Resource
 {
     protected static ?string $model = Jabatan::class;
 
+    protected static ?string $navigationGroup = 'KEANGGOTAAN';
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationLabel = 'Jabatan';
+    protected static ?int $navigationSort = 6;
+    protected static ?string $navigationLabel = 'Jabatan Dalam PSHT';
+
+    protected static ?string $modelLabel = 'Jabatan Dalam PSHT';
+    protected static ?string $pluralModelLabel = 'Jabatan Dalam PSHT';
+
+    public static function getLabel(): ?string
+    {
+        return 'Jabatan Dalam PSHT';
+    }
+
+    public static function getPluralLabel(): ?string
+    {
+        return 'Jabatan Dalam PSHT';
+    }
 
     public static function form(Form $form): Form
     {
@@ -32,7 +48,7 @@ class JabatanResource extends Resource
                     ->minLength(2)
                     ->maxLength(255),
                 Forms\Components\Select::make('lokasi_jabatan')
-                    ->label('Lokasi Jabatan')
+                    ->label('Tingkat')
                     ->options([
                         'Pusat' => 'Pusat',
                         'Provinsi' => 'Provinsi',
@@ -61,7 +77,7 @@ class JabatanResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('jabatan')->label('Jabatan'),
-                Tables\Columns\TextColumn::make('lokasi_jabatan')->label('Lokasi Jabatan')->sortable(),
+                Tables\Columns\TextColumn::make('lokasi_jabatan')->label('Tingkat')->sortable(),
                 Tables\Columns\TextColumn::make('mulai_jabatan')->label('Mulai Jabatan')->dateTime('d M Y')->sortable(),
                 Tables\Columns\TextColumn::make('akhir_jabatan')->label('Akhir Jabatan')->dateTime('d M Y')->sortable(),
             ])

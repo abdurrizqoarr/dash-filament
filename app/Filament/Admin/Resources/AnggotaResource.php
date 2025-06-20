@@ -23,9 +23,10 @@ class AnggotaResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationGroup = 'DASHBOARD';
     protected static ?string $navigationLabel = 'Anggota';
 
-        protected static ?string $modelLabel = 'Anggota';
+    protected static ?string $modelLabel = 'Anggota';
     protected static ?string $pluralModelLabel = 'Anggota';
 
     public static function form(Form $form): Form

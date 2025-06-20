@@ -22,6 +22,7 @@ class Profile extends Page implements HasForms
 
     protected static ?string $navigationIcon = 'heroicon-o-user-circle';
 
+    protected static ?string $navigationGroup = 'DASHBOARD';
     protected static string $view = 'filament.anggota.pages.profile';
 
     public ?array $data = [];

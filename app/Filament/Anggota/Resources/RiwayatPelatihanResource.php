@@ -19,8 +19,23 @@ class RiwayatPelatihanResource extends Resource
 {
     protected static ?string $model = RiwayatLatihan::class;
 
+    protected static ?string $navigationGroup = 'KEANGGOTAAN';
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationLabel = 'Riwayat Pelatihan';
+    protected static ?string $navigationLabel = 'Riwayat Latihan PSHT';
+    protected static ?int $navigationSort = 3;
+
+    protected static ?string $modelLabel = 'Riwayat Latihan PSHT';
+    protected static ?string $pluralModelLabel = 'Riwayat Latihan PSHT';
+
+    public static function getLabel(): ?string
+    {
+        return 'Riwayat Latihan PSHT';
+    }
+
+    public static function getPluralLabel(): ?string
+    {
+        return 'Riwayat Latihan PSHT';
+    }
 
     public static function form(Form $form): Form
     {

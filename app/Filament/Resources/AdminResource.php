@@ -23,6 +23,7 @@ class AdminResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationGroup = 'DASHBOARD';
     protected static ?string $navigationLabel = 'Admin';
 
     protected static ?string $modelLabel = 'Admin';
@@ -99,9 +100,7 @@ class AdminResource extends Resource
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
-            ->bulkActions([
-                
-            ]);
+            ->bulkActions([]);
     }
 
     public static function getRelations(): array

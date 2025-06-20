@@ -19,8 +19,23 @@ class RiwayatPendidikanResource extends Resource
 {
     protected static ?string $model = RiwayatPendidikan::class;
 
+    protected static ?string $navigationGroup = 'KEANGGOTAAN';
+    protected static ?int $navigationSort = 1;
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationLabel = 'Riwayat Pendidikan';
+    protected static ?string $navigationLabel = 'Pendidikan Formal';
+
+    protected static ?string $modelLabel = 'Pendidikan Formal';
+    protected static ?string $pluralModelLabel = 'Pendidikan Formal';
+
+    public static function getLabel(): ?string
+    {
+        return 'Pendidikan Formal';
+    }
+
+    public static function getPluralLabel(): ?string
+    {
+        return 'Pendidikan Formal';
+    }
 
     public static function form(Form $form): Form
     {

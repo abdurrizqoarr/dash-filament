@@ -19,8 +19,23 @@ class PrestasiResource extends Resource
 {
     protected static ?string $model = Prestasi::class;
 
+    protected static ?string $navigationGroup = 'KEANGGOTAAN';
+    protected static ?int $navigationSort = 5;
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationLabel = 'Prestasi';
+    protected static ?string $navigationLabel = 'Prestasi Anggota';
+
+    protected static ?string $modelLabel = 'Prestasi Anggota';
+    protected static ?string $pluralModelLabel = 'Prestasi Anggota';
+
+    public static function getLabel(): ?string
+    {
+        return 'Prestasi Anggota';
+    }
+
+    public static function getPluralLabel(): ?string
+    {
+        return 'Prestasi Anggota';
+    }
 
     public static function form(Form $form): Form
     {

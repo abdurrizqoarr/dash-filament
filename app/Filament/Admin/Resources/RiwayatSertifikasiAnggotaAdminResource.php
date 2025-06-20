@@ -27,21 +27,22 @@ class RiwayatSertifikasiAnggotaAdminResource extends Resource
     protected static ?string $model = Sertifikasi::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationLabel = 'Riwayat Sertifikasi Anggota';
+    protected static ?string $navigationLabel = 'Riwayat Pendidikan Non Formal';
 
-    protected static ?string $modelLabel = 'Riwayat Sertifikasi Anggota';
-    protected static ?string $pluralModelLabel = 'Riwayat Sertifikasi Anggota';
+    protected static ?string $modelLabel = 'Riwayat Pendidikan Non Formal';
+    protected static ?string $pluralModelLabel = 'Riwayat Pendidikan Non Formal';
 
     public static function getLabel(): ?string
     {
-        return 'Riwayat Sertifikasi Anggota';
+        return 'Riwayat Pendidikan Non Formal';
     }
 
     public static function getPluralLabel(): ?string
     {
-        return 'Riwayat Sertifikasi Anggota';
+        return 'Riwayat Pendidikan Non Formal';
     }
-    protected static ?string $navigationGroup = 'Anggota';
+    protected static ?string $navigationGroup = 'KEANGGOTAAN';
+    protected static ?int $navigationSort = 7;
 
     public static function canCreate(): bool
     {

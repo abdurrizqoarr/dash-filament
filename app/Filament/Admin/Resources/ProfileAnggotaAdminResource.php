@@ -25,21 +25,22 @@ class ProfileAnggotaAdminResource extends Resource
     protected static ?string $model = Profile::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationLabel = 'Profile Anggota';
+    protected static ?string $navigationLabel = 'Profile Keanggotaan';
 
-    protected static ?string $modelLabel = 'Profile Anggota';
-    protected static ?string $pluralModelLabel = 'Profile Anggota';
+    protected static ?string $modelLabel = 'Profile Keanggotaan';
+    protected static ?string $pluralModelLabel = 'Profile Keanggotaan';
 
     public static function getLabel(): ?string
     {
-        return 'Profile Anggota';
+        return 'Profile Keanggotaan';
     }
 
     public static function getPluralLabel(): ?string
     {
-        return 'Profile Anggota';
+        return 'Profile Keanggotaan';
     }
-    protected static ?string $navigationGroup = 'Anggota';
+    protected static ?string $navigationGroup = 'KEANGGOTAAN';
+    protected static ?int $navigationSort = 1;
 
     public static function canCreate(): bool
     {

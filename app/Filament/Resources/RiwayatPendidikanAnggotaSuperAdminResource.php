@@ -25,21 +25,22 @@ class RiwayatPendidikanAnggotaSuperAdminResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationLabel = 'Riwayat Pendidikan Anggota';
+    protected static ?string $navigationLabel = 'Pendidikan Formal';
 
-    protected static ?string $modelLabel = 'Riwayat Pendidikan Anggota';
-    protected static ?string $pluralModelLabel = 'Riwayat Pendidikan Anggota';
+    protected static ?string $modelLabel = 'Pendidikan Formal';
+    protected static ?string $pluralModelLabel = 'Pendidikan Formal';
 
     public static function getLabel(): ?string
     {
-        return 'Riwayat Pendidikan Anggota';
+        return 'Pendidikan Formal';
     }
 
     public static function getPluralLabel(): ?string
     {
-        return 'Riwayat Pendidikan Anggota';
+        return 'Pendidikan Formal';
     }
-    protected static ?string $navigationGroup = 'Anggota';
+    protected static ?string $navigationGroup = 'KEANGGOTAAN';
+    protected static ?int $navigationSort = 6;
 
     public static function canCreate(): bool
     {
